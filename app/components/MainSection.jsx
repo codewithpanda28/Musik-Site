@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { Menu } from "lucide-react";
+
 import Navbar from "./Navbar";
 
 export default function MainSection() {
@@ -34,29 +34,21 @@ export default function MainSection() {
   return (
     <div className="bg-[#5A3EE5] min-h-screen bg-cover bg-center relative overflow-hidden w-full">
       {/* Content */}
-      <div className="relative z-10">
+      <div className=" z-10">
         {/* Header */}
-        <header className="fixed top-0 left-20 right-0 z-50 flex justify-between items-center p-4 min-h-[100px] min-w-full pl-24 pt-12">
-          <div className="text-white text-3xl font-bold ml-4 z-[9999]">
+        <header className="fixed top-0 left-0 right-0 z-50 flex items-center p-4 min-h-[100px] min-w-full justify-between lg:pl-24 pt-12 lg:left-20">
+          <div className="text-white text-3xl font-bold ml-10 z-[9999]">
             <img src="/logo.svg" alt="Description of the image" />
           </div>
-          
+
           <Navbar />
 
-          <div className="flex items-center gap-4 lg:hidden mr-4 mt-4">
-            <button className="buy-ticket bg-[#EAF943] text-[#5A3EE5] px-7 py-2 rounded-full">
-              BUY TICKETS
-            </button>
-            <div className="p-2 rounded-md bg-[#E9F943]">
-              <Menu className="text-[#5A3EE5] w-8 h-8" />
-            </div>
-          </div>
         </header>
         {/* Header section end */}
 
         {/* Main Content */}
         <main className="text-center text-white mt-40 px-4 relative">
-          <div className="absolute inset-0 flex justify-center items-center z-0">
+          <div className="absolute inset-0 flex justify-center items-center z-10">
             <Image
               src="/mainbackground.svg"
               alt="Image Description"
@@ -68,29 +60,32 @@ export default function MainSection() {
 
           <div className=" relative z-10">
             {/* heading */}
-            <div className="flex">
-              <div className="flex flex-col items-center ml-64">
-                <h1 className="main-heading text-9xl font-bold mb-4">IIMV</h1>
+            <div className="flex lg:justify-start md:justify-center sm:mr-24 md:mr-0">
+              <div className="flex flex-col items-center ml-0 md:ml-64">
+                <h1 className="main-heading text-7xl md:text-9xl font-bold mb-4">
+                  IIMV
+                </h1>
               </div>
               <div className="flex flex-col items-center mr-80 mt-7">
-                <span className="bg-black text-yellow-400 px-3 py-1  rounded-lg">
+                <span className="bg-black text-yellow-400 px-3 py-1 rounded-lg">
                   GOA
                 </span>
-                <h2 className="main-2025 main-heading text-8xl font-bold text-orange-500 mt-0">
+                <h2 className="main-2025 main-heading text-orange-500 mt-0 font-bold text-7xl md:text-8xl sm:text-6xl">
                   2025
                 </h2>
               </div>
             </div>
 
             {/* sub-description */}
-            <p className="main-desc text-2xl mb-8 mr-[20%]">
+            <p className=" main-desc text-2xl mb-8 mr-[20%] text-center ">
               India's First{" "}
               <span className="text-orange-400">Global Music</span> Conference
-              and showcase <br /> Festival.
+              and <span> showcase</span> <br />{" "}
+              <span className="lg:mr-[48%] lg:text-left">Festival.</span>
             </p>
 
             {/* Countdown */}
-            <div className="main-count flex justify-center gap-4 mb-8 mr-[36%] ">
+            <div className="main-count flex justify-center gap-4 mb-8 mr-[36%] sm:justify-center lg:justify-start lg:ml-64 sm:mr-0 ">
               {Object.entries(timeLeft).map(([unit, value]) => (
                 <div
                   key={unit}
@@ -101,14 +96,15 @@ export default function MainSection() {
                 </div>
               ))}
             </div>
+
             {/* button */}
-            <button className="main-btn text-[#EAF943] px-8 py-3 rounded-full font-semibold text-xl mr-[47%]">
+            <button className="main-btn text-[#EAF943] px-8 py-3 rounded-full font-semibold text-xl mr-[47%]md:justify-center">
               BECOME SPONSOR
             </button>
           </div>
 
           {/* 1st card */}
-          <div class="flex mr-56 mt-12 mb-20">
+          <div class="lg:flex mr-56 mt-12 mb-20 z-10 relative sm:justify-start sm:items-start sm:mx-auto md:mx-auto md:items-start md:justify-center md:grid md:grid-cols-1 ">
             <div class="flex-1 flex flex-col text-left ml-64 main-btn ">
               <div className="text-[#e1f12e] uppercase">wed 05 feb</div>
               <ul>

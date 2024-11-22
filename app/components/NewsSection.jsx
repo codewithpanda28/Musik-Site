@@ -35,7 +35,7 @@ export default function NewsSection() {
     {
       src: "news1.svg",
       alt: "Violinist",
-      title: "The Stage is all set for All Music Stars",
+      title: "The Stage is all set for Stars",
       date: "23 January, 2023"
     },
     {
@@ -53,24 +53,24 @@ export default function NewsSection() {
     {
       src: "news1.svg",
       alt: "Microphone",
-      title: "Epic weekend of music. Here's a recap",
+      title: "Epic weekend of music recap",
       date: "19 August, 2024"
     },
     {
       src: "news1.svg",
       alt: "Violinist",
-      title: "The Stage is all set for All Music Stars",
+      title: "The Stage is all set Stars",
       date: "23 January, 2023"
     }
   ];
 
   return (
-    <div className="newsdiv w-[87%]  ml-[13%] pl-[8%] bg-white  mx-auto p-8">
+    <div className="newsdiv lg:w-[87%]  bg-[#5B43F5] lg:ml-[13%] lg:pl-[8%] bg-white  lg:mx-auto lg:p-8 lg:mt-0 sm:mt-[-160%] md:mt-[-88%]   sm:p-10 z-10">
       <h1 className="news-heading text-6xl font-bold mb-8 italic transform -skew-x-12">NEWS</h1>
       <div className="relative overflow-hidden">
         <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100 / 4}%)` }}>
           {newsItems.map((item, index) => (
-            <div key={index} className="w-1/3 flex-shrink-0">
+<div key={index} className="lg:w-1/3 md:w-1/2 sm:w-full xs:w-full flex-shrink-0">
               <Image
                 src={item.src}
                 alt={item.alt}

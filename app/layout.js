@@ -47,7 +47,7 @@ export default function RootLayout({ children }) {
           <Image
             src="/leftbackground.svg"
             alt=""
-            width={165}
+            width={198}
             height={300}
             className="hidden lg:block"
           />
