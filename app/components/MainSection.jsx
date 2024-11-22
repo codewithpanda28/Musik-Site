@@ -2,8 +2,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Menu } from "lucide-react";
-import Link from "next/link";
-
+import Navbar from "./Navbar";
 
 export default function MainSection() {
   const calculateTimeLeft = () => {
@@ -37,123 +36,14 @@ export default function MainSection() {
       {/* Content */}
       <div className="relative z-10">
         {/* Header */}
-        <header className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center p-4 min-h-[100px] min-w-full pl-11 pt-12">
-          <div className="text-white text-3xl font-bold ml-36 z-[9999]">
+        <header className="fixed top-0 left-20 right-0 z-50 flex justify-between items-center p-4 min-h-[100px] min-w-full pl-24 pt-12">
+          <div className="text-white text-3xl font-bold ml-4 z-[9999]">
             <img src="/logo.svg" alt="Description of the image" />
-            
           </div>
-{/* nav start */}
- <nav className="hidden lg:flex flex items-center mr-[30%] mt-4 ">
- <Link
-    href="#"
-    className={`absolute text-lg font-bold text-red-400 transition-transform duration-300 hover:z-10`}
-    style={{
-      backgroundColor: "#ffba08",
-      padding: "15px 15px",
-      zIndex: 2,
-      transform: "translateX(100%)",
-      whiteSpace: "nowrap",
-      overflow: "hidden",
-      display: "flex",
-      justifyContent: "center",
-      transition: "transform 0.3s",
-      width: "auto",
-    }}
-    onMouseEnter={(e) => {
-      console.log('Hovering SPEAKERS');
-      e.currentTarget.style.transform = "translateX(0)";
-      e.currentTarget.style.overflow = "visible";
-      e.currentTarget.style.zIndex = 10;
-      e.currentTarget.style.padding = `15px 35px`;
-    }}
-    onMouseLeave={(e) => {
-      e.currentTarget.style.transform = "translateX(100%)";
-      e.currentTarget.style.overflow = "hidden";
-      e.currentTarget.style.zIndex = 2;
-      e.currentTarget.style.padding = `15px 15px`;
-    }}
-  >
-    <span className="absolute inset-0 flex items-center justify-center">
-      SPEAKERS
-    </span>
-  </Link>
-  <Link
-    href="#"
-    className={`absolute text-lg font-bold text-red-400 transition-transform duration-300 hover:z-10`}
-    style={{
-      backgroundColor: "#e63946",
-      padding: "15px 25px",
-      zIndex: 1,
-      transform: "translateX(100%)",
-      whiteSpace: "nowrap",
-      overflow: "hidden",
-      display: "flex",
-      justifyContent: "center",
-      transition: "transform 0.3s",
-      width: "auto",
-    }}
-    onMouseEnter={(e) => {
-      console.log('Hovering ARTIST');
-      e.currentTarget.style.transform = "translateX(0)";
-      e.currentTarget.style.overflow = "visible";
-      e.currentTarget.style.zIndex = 10;
-      e.currentTarget.style.padding = `15px 40px`;
-    }}
-    onMouseLeave={(e) => {
-      e.currentTarget.style.transform = "translateX(100%)";
-      e.currentTarget.style.overflow = "hidden";
-      e.currentTarget.style.zIndex = 1;
-      e.currentTarget.style.padding = "15px 30px";
-    }}
-  >
-    <span className="absolute inset-0 flex items-center justify-center">
-      ARTIST
-    </span>
-  </Link>
-  <Link
-    href="#"
-    className={`absolute text-lg font-bold text-red-400 transition-transform duration-300 hover:z-10`}
-    style={{
-      backgroundColor: "#ffba08",
-      padding: "15px 40px",
-      zIndex: 0,
-      transform: "translateX(100%)",
-      whiteSpace: "nowrap",
-      overflow: "hidden",
-      display: "flex",
-      justifyContent: "center",
-      width: "auto",
-    }}
-    onMouseEnter={(e) => {
-      console.log('Hovering TICKET');
-      e.currentTarget.style.transform = "translateX(0)";
-      e.currentTarget.style.overflow = "visible";
-      e.currentTarget.style.zIndex = 10;
-      e.currentTarget.style.padding = `15px 40px`;
-    }}
-    onMouseLeave={(e) => {
-      e.currentTarget.style.transform = "translateX(100%)";
-      e.currentTarget.style.overflow = "hidden";
-      e.currentTarget.style.zIndex = 0;
-      e.currentTarget.style.padding = "15px 45px";
-    }}
-  >
-    <span className="absolute inset-0 flex items-center justify-center">
-      TICKET
-    </span>
-  </Link>
-</nav>
-         
+          
+          <Navbar />
 
-
-         
-     
-
-
-
-
-
-          <div className="flex items-center gap-4 lg:hidden mr-80 mt-4">
+          <div className="flex items-center gap-4 lg:hidden mr-4 mt-4">
             <button className="buy-ticket bg-[#EAF943] text-[#5A3EE5] px-7 py-2 rounded-full">
               BUY TICKETS
             </button>
@@ -179,7 +69,7 @@ export default function MainSection() {
           <div className=" relative z-10">
             {/* heading */}
             <div className="flex">
-              <div className="flex flex-col items-center  ml-64">
+              <div className="flex flex-col items-center ml-64">
                 <h1 className="main-heading text-9xl font-bold mb-4">IIMV</h1>
               </div>
               <div className="flex flex-col items-center mr-80 mt-7">
@@ -218,12 +108,12 @@ export default function MainSection() {
           </div>
 
           {/* 1st card */}
-        <div class="flex mr-56 mt-12 mb-20">
+          <div class="flex mr-56 mt-12 mb-20">
             <div class="flex-1 flex flex-col text-left ml-64 main-btn ">
               <div className="text-[#e1f12e] uppercase">wed 05 feb</div>
               <ul>
                 <li className="flex gap-2">
-                  <span className="text-[#FF7A05]"> &#8226;  </span>
+                  <span className="text-[#FF7A05]"> &#8226; </span>
                   <h3 className="main-bottom-h3"> Opening Night Performance</h3>
                 </li>
               </ul>
@@ -252,7 +142,7 @@ export default function MainSection() {
             </div>
 
             {/* 3rd card */}
-             <div class="flex-1 main-btn">
+            <div class="flex-1 main-btn">
               <div className="text-[#e1f12e] mr-10 uppercase">fri 07 feb</div>
               <ul>
                 <li className="flex ml-24 gap-2">
@@ -279,14 +169,14 @@ export default function MainSection() {
       </div>
 
       {/* Added Image */}
-<Image
-  src="/rightbackground.svg"
-  alt="Right Background Image"
-  width={320}
-  height={320}
-  className="absolute top-0 right-0 h-100vh z-50 hidden lg:block"
-  unoptimized={true}
-/>
+      <Image
+        src="/rightbackground.svg"
+        alt="Right Background Image"
+        width={320}
+        height={320}
+        className="absolute top-0 right-0 h-100vh z-10 hidden lg:block"
+        unoptimized={true}
+      />
     </div>
   );
 }

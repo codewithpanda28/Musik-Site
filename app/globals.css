@@ -112,3 +112,11 @@ body {
   position: relative;
   top: 80px;
 }
+
+.navbar-subnav{
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
