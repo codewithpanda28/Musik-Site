@@ -41,7 +41,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div
-          className="fixed z-10 top-0 left-0 w-full h-screen overflow-hidden"
+          className="fixed z-10 top-0 left-0 lg:w-full sm:w-[100%] h-full overflow-hidden"
           style={{ backgroundColor: "#5A3EE5" }}
         >
           <Image

@@ -4,34 +4,34 @@ import React from 'react'
 
 const Footer = () => {
   return (
-<div className="footer-font bg-[#5B43F5] lg:mt-[28.4%] lg:ml-[10%] z-10 static overflow-hidden md:mt-[-30%]
+<div className="footer-font bg-[#5B43F5] lg:mt-[28.4%] lg:ml-[10%] lg:mb-[40%]  z-10 static overflow-hidden md:mt-[-30%]
 sm:mt-[-60%] " >
   {/* Navigation Menu */}
-  <div className="absolute z-10 p-12">
-    <nav className="footer-nav border-r border-white/20 pr-8">
-      <ul className="space-y-6 mt-[10%] ">
+<div className="absolute z-10 p-12 w-full sm:w-auto lg:w-auto">
+   <nav className="footer-nav border-r border-white/20 pr-8 relative lg:top-[80px]">
+      <ul className="lg:space-y-5 sm:space-y-2 mt-[10%] ">
         <li>
-          <Link href="#lineup" className=" text-white sm:text-4xl md:text-5xl lg:text-6xl font-bold italic hover:text-white/80 transition-colors">
+          <Link href="#lineup" className="cursor-pointer text-white sm:text-3xl md:text-5xl lg:text-6xl font-bold italic hover:text-white/80 transition-colors">
             LINEUP
           </Link>
         </li>
         <li>
-          <Link href="#event-info" className="text-white sm:text-4xl md:text-5xl lg:text-6xl  font-bold italic hover:text-white/80 transition-colors">
+          <Link href="#event-info" className="cursor-pointer text-white sm:text-3xl md:text-5xl lg:text-6xl font-bold italic hover:text-white/80 transition-colors">
             EVENT INFO
           </Link>
         </li>
         <li>
-          <Link href="#schedule" className="text-white sm:text-4xl md:text-5xl lg:text-6xl  font-bold italic hover:text-white/80 transition-colors">
+          <Link href="#schedule" className="cursor-pointer text-white sm:text-3xl md:text-5xl lg:text-6xl font-bold italic hover:text-white/80 transition-colors">
             SCHEDULE
           </Link>
         </li>
         <li>
-          <Link href="#news" className="text-white sm:text-4xl md:text-5xl lg:text-6xl  font-bold italic hover:text-white/80 transition-colors">
+          <Link href="#news" className="cursor-pointer text-white sm:text-3xl md:text-5xl lg:text-6xl font-bold italic hover:text-white/80 transition-colors">
             NEWS
           </Link>
         </li>
         <li>
-          <Link href="#contact" className="text-white sm:text-4xl md:text-5xl lg:text-6xl  font-bold italic hover:text-white/80 transition-colors">
+          <Link href="#contact" className="cursor-pointer text-white sm:text-3xl md:text-5xl lg:text-6xl font-bold italic hover:text-white/80 transition-colors">
             CONTACT
           </Link>
         </li>
@@ -44,7 +44,7 @@ sm:mt-[-60%] " >
         alt="Image Description"
         width={1000}  
         height={200}  
-        className=' lg:max-w-[300%] sm:max-w-[120%] items-center justify-center mx-auto lg:ml-[78%] mt-[10%]'
+        className=' lg:max-w-[300%] sm:max-w-[120%] lg:w-[140%] sm:w-[80%] items-center justify-center mx-auto lg:ml-[78%] mt-[10%]'
       />
     </div>
   </div>
@@ -61,14 +61,14 @@ sm:mt-[-60%] " >
     </div>
 
 </div>
-      {/* New Image at Right 0 Top 0 */}
-      <div className="absolute z-10 right-0 hidden lg:block">
+{/* New Image at Right 0 Top 0 */}
+      <div className="absolute z-10 lg:right-0 hidden lg:block w-full lg:w-auto">
       <Image
         src="footerbackground.svg"
         alt="New Image"
         width={300}
         height={100}
-        className='h-[100%]  bg-[#5B43F5]'
+        className='h-[100%] bg-[#5B43F5] '
       />
     </div>
 

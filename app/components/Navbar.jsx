@@ -38,7 +38,7 @@ function Navbar() {
   }, [isMenuOpen])
 
   return (
-    <nav className="relative z-50 w-[42%] text-white md:absolute lg:right-0 sm:right-[-30%] md:right-0">
+    <nav className="relative z-50 w-[42%] text-white md:absolute lg:right-0 sm:right-[-25%] md:right-0">
       <button
         className="block md:hidden p-2 text-white"
         onClick={() => setIsMenuOpen(!isMenuOpen)}

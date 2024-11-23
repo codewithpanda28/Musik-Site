@@ -1,76 +1,134 @@
 'use client'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { ArrowRight } from 'lucide-react';
 
 export default function NewsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 2000); // Automatically slide every 2 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleMouseDown = (e) => {
+    setIsDragging(true);
+    setStartX(e.clientX || e.touches[0].clientX);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    const currentX = e.clientX || e.touches[0].clientX;
+    const diff = startX - currentX;
+    if (diff > 50) {
+      nextSlide();
+      setIsDragging(false);
+    } else if (diff < -50) {
+      prevSlide();
+      setIsDragging(false);
+    }
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % 4);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % newsItems.length);
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + 4) % 4);
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + newsItems.length) % newsItems.length);
+  };
+
+  const getSlidesToShow = () => {
+    if (window.innerWidth >= 1024) {
+      return 3; // Large devices
+    } else if (window.innerWidth >= 768) {
+      return 1; // Tablet devices
+    } else {
+      return 1; // Mobile devices
+    }
   };
 
   const newsItems = [
     {
       src: "news1.svg",
       alt: "Concert crowd",
-      title: "Relive a handful of year's tour.",
+      title: "Relive a handful of.",
       date: "17 November, 2024"
     },
     {
       src: "news1.svg",
       alt: "Concert crowd",
-      title: "Relive a handful year's tour.",
+      title: "Relive a handful year's.",
       date: "17 November, 2024"
     },
     {
       src: "news1.svg",
       alt: "Microphone",
-      title: "Epic weekend of music. Here's a recap",
+      title: "Epic weekend of music.",
       date: "19 August, 2024"
     },
     {
       src: "news1.svg",
-      alt: "Violinist",
-      title: "The Stage is all set for Stars",
-      date: "23 January, 2023"
-    },
-    {
-      src: "news1.svg",
       alt: "Concert crowd",
-      title: "Relive a handful year's tour.",
+      title: "Relive a handful of.",
       date: "17 November, 2024"
     },
     {
       src: "news1.svg",
       alt: "Concert crowd",
-      title: "Relive a from this year's tour.",
+      title: "Relive a handful year's.",
       date: "17 November, 2024"
     },
     {
       src: "news1.svg",
       alt: "Microphone",
-      title: "Epic weekend of music recap",
+      title: "Epic weekend of music. ",
       date: "19 August, 2024"
     },
     {
       src: "news1.svg",
-      alt: "Violinist",
-      title: "The Stage is all set Stars",
-      date: "23 January, 2023"
-    }
+      alt: "Concert crowd",
+      title: "Relive a handful.",
+      date: "17 November, 2024"
+    },
+    {
+      src: "news1.svg",
+      alt: "Concert crowd",
+      title: "Relive a handful year's ",
+      date: "17 November, 2024"
+    },
+    {
+      src: "news1.svg",
+      alt: "Microphone",
+      title: "Epic weekend of music.",
+      date: "19 August, 2024"
+    },
   ];
 
   return (
-    <div className="newsdiv lg:w-[87%]  bg-[#5B43F5] lg:ml-[13%] lg:pl-[8%] bg-white  lg:mx-auto lg:p-8 lg:mt-0 sm:mt-[-160%] md:mt-[-88%]   sm:p-10 z-10">
+    <div className="newsdiv lg:w-[87%] lg:ml-[13%] lg:pl-[8%] bg-white lg:mx-auto lg:p-8 lg:mt-0 sm:mt-[-160%] md:mt-[-88%] sm:w-[100%] sm:p-10 z-10">
       <h1 className="news-heading text-6xl font-bold mb-8 italic transform -skew-x-12">NEWS</h1>
-      <div className="relative overflow-hidden">
-        <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100 / 4}%)` }}>
+      <div 
+        className="relative overflow-x-auto lg:overflow-x-hidden"
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseUp}
+        onTouchStart={handleMouseDown}
+        onTouchMove={handleMouseMove}
+        onTouchEnd={handleMouseUp}
+      >
+        <div className="flex transition-transform duration-300 ease-out" style={{ transform: `translateX(-${currentIndex * 100 / getSlidesToShow()}%)` }}>
           {newsItems.map((item, index) => (
-<div key={index} className="lg:w-1/3 md:w-1/2 sm:w-full xs:w-full flex-shrink-0">
+            <div key={index} className="lg:w-1/3 md:w-1/2 xs:w-full flex-shrink-0 px-2" style={{ gap: '16px' }}>
               <Image
                 src={item.src}
                 alt={item.alt}
@@ -78,26 +136,19 @@ export default function NewsSection() {
                 height={200}
                 className="rounded-lg"
               />
-              <h2 className="news-title text-xl font-bold mt-4">{item.title}</h2>
+              <h2 className="news-title text-xl font-bold mt-4 whitespace-normal">{item.title}</h2>
               <p className="news-date text-gray-500">{item.date}</p>
             </div>
           ))}
         </div>
+        {window.innerWidth >= 1024 && (
+         <div className="absolute top-1/2 transform -translate-y-1/2 w-full flex justify-end px-4">
+          <button onClick={nextSlide} className="bg-gray-800 text-white p-2 rounded-full">
+            <ArrowRight />
+          </button>
+        </div>
+        )}
       </div>
-      <button
-        onClick={prevSlide}
-        className="absolute top-1/2 left-5 transform -translate-y-1/2 bg-gray-200 p-3 rounded-full shadow-md"
-        aria-label="Previous slide"
-      >
-        &#9664;
-      </button>
-      <button
-        onClick={nextSlide}
-        className="absolute top-1/2 right-5 transform -translate-y-1/2 bg-gray-200 p-3 rounded-full shadow-md"
-        aria-label="Next slide"
-      >
-        &#9654;
-      </button>
     </div>
   );
 }

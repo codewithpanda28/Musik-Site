@@ -1,6 +1,6 @@
 export default function VideoHeading() {
   return (
-  <div className=" bg-[#5B43F5] relative h-screen bg-black text-white sm:w-full md:w-full lg:w-auto">
+  <div className=" bg-[#5B43F5] relative lg:h-screen sm:h-[100vh] md:h-[95vh] text-white sm:w-full md:w-full lg:w-auto">
   <video
     src="/video.mp4"
     className="opacity-100 z-10 absolute w-full sm:w-full md:w-full lg:w-[87%] lg:left-[13%]"
