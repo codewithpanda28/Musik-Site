@@ -34,10 +34,10 @@ export default function MainSection() {
   return (
     <div className="bg-[#5A3EE5]  bg-cover bg-center relative overflow-hidden w-full">
       {/* Content */}
-      <div className=" z-10 sm:h-[50vh] md:h-[38vh] lg:h-[100vh]">
+      <div className=" z-10 sm:h-[50vh] md:h-[45vh] lg:h-[100vh]">
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 flex items-center p-4 min-h-[100px] min-w-full sm:justify-between lg:pl-24 lg:pt-12 lg:left-20">
-        <div className="text-white text-3xl font-bold ml-10 z-[9999]">
+        <div className="text-white text-3xl font-bold ml-10 z-10">
           <img src="/logo.svg" alt="Description of the image" />
         </div>
 
@@ -48,15 +48,15 @@ export default function MainSection() {
 
       {/* Main Content */}
       <main className="text-center text-white mt-40 px-4 relative">
-        <div className="absolute inset-0 flex justify-center items-center z-10">
-          <Image
-            src="/mainbackground.svg"
-            alt="Image Description"
-            width={1100}
-            height={500}
-            className="mt-[-20%] "
-          />
-        </div>
+    <div className="absolute inset-0 flex justify-center items-center z-10 transition-transform duration-300 hover:scale-105">
+  <Image
+    src="/mainbackground.svg"
+    alt="Image Description"
+    width={1100}
+    height={500}
+    className="mt-[-20%] transition-opacity duration-300 hover:opacity-80"
+  />
+</div>
 
         <div className=" relative z-10 sm:mt-[-45px] md:mt-[30px] lg:mt-0">
           {/* heading */}

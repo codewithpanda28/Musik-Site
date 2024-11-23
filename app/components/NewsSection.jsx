@@ -11,7 +11,7 @@ export default function NewsSection() {
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 2000); // Automatically slide every 2 seconds
+    }, 6000); // Automatically slide every 2 seconds
 
     return () => clearInterval(interval);
   }, []);
@@ -129,13 +129,13 @@ export default function NewsSection() {
         <div className="flex transition-transform duration-300 ease-out" style={{ transform: `translateX(-${currentIndex * 100 / getSlidesToShow()}%)` }}>
           {newsItems.map((item, index) => (
             <div key={index} className="lg:w-1/3 md:w-1/2 xs:w-full flex-shrink-0 px-2" style={{ gap: '16px' }}>
-              <Image
-                src={item.src}
-                alt={item.alt}
-                width={300}
-                height={200}
-                className="rounded-lg"
-              />
+            <Image
+  src={item.src}
+  alt={item.alt}
+  width={300}
+  height={200}
+  className="rounded-lg transition-transform duration-200 ease-in-out transform hover:scale-105 hover:shadow-lg"
+/>
               <h2 className="news-title text-xl font-bold mt-4 whitespace-normal">{item.title}</h2>
               <p className="news-date text-gray-500">{item.date}</p>
             </div>
@@ -143,9 +143,9 @@ export default function NewsSection() {
         </div>
         {window.innerWidth >= 1024 && (
          <div className="absolute top-1/2 transform -translate-y-1/2 w-full flex justify-end px-4">
-          <button onClick={nextSlide} className="bg-gray-800 text-white p-2 rounded-full">
-            <ArrowRight />
-          </button>
+        <button onClick={nextSlide} className="bg-gray-800 text-white p-2 rounded-full transition-transform transform hover:scale-110 hover:bg-gray-700">
+  <ArrowRight />
+</button>
         </div>
         )}
       </div>
