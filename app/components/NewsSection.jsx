@@ -114,41 +114,65 @@ export default function NewsSection() {
   ];
 
   return (
-    <div className="newsdiv lg:w-[87%] lg:ml-[13%] lg:pl-[8%] bg-white lg:mx-auto lg:p-8 lg:mt-0 sm:mt-[-160%] md:mt-[-88%] sm:w-[100%] sm:p-10 z-10">
-      <h1 className="news-heading text-6xl font-bold mb-8 italic transform -skew-x-12">NEWS</h1>
-      <div 
-        className="relative overflow-x-auto lg:overflow-x-hidden"
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseUp}
-        onTouchStart={handleMouseDown}
-        onTouchMove={handleMouseMove}
-        onTouchEnd={handleMouseUp}
-      >
-        <div className="flex transition-transform duration-300 ease-out" style={{ transform: `translateX(-${currentIndex * 100 / getSlidesToShow()}%)` }}>
-          {newsItems.map((item, index) => (
-            <div key={index} className="lg:w-1/3 md:w-1/2 xs:w-full flex-shrink-0 px-2" style={{ gap: '16px' }}>
-            <Image
-  src={item.src}
-  alt={item.alt}
-  width={300}
-  height={200}
-  className="rounded-lg transition-transform duration-200 ease-in-out transform hover:scale-105 hover:shadow-lg"
-/>
-              <h2 className="news-title text-xl font-bold mt-4 whitespace-normal">{item.title}</h2>
-              <p className="news-date text-gray-500">{item.date}</p>
-            </div>
-          ))}
+    <>
+    <div className=" bg-[#5B43F5] relative h-[100%] sm:h-[100vh] md:h-[95vh] text-white sm:w-full md:w-full lg:w-auto">
+    <video
+      src="/video.mp4"
+      className="opacity-100 z-10 absolute w-full sm:w-full md:w-full lg:w-[87%] lg:left-[13%]"
+      autoPlay
+      loop
+      muted
+      onClick="if(this.paused) this.play(); else this.pause();"
+  >
+      Your browser does not support the video tag.
+  </video>
+  
+  <div className="absolute top-0 right-0 p-4 flex items-center space-x-4 z-10"></div>
+  <div className="absolute inset-10 flex justify-center z-10">
+    <h1 className="video-heading text-3xl font-bold text-center sm:text-2xl sm:mt-4 md:mt-20 md:justify-center sm:text-center md:text-5xl lg:text-8xl lg:font-bold lg:w-full lg:justify-center lg:items-center lg:flex lg:mt-4">
+      India first global <br /> music conference and <br /> showcase
+      festival
+    </h1>
+  </div>
+  </div>
+  {/* <NewsSection/> */}
+ 
+   <div className="newsdiv lg:w-[87%] lg:ml-[13%] lg:pl-[8%] bg-white lg:mx-auto lg:p-8 lg:mt-0 sm:mt-[-160%] md:mt-[-88%] sm:w-[100%] sm:p-10 z-10">
+  <h1 className="news-heading text-6xl font-bold mb-8 italic transform -skew-x-12">NEWS</h1>
+  <div 
+    className="relative overflow-x-auto lg:overflow-x-hidden"
+    onMouseDown={handleMouseDown}
+    onMouseMove={handleMouseMove}
+    onMouseUp={handleMouseUp}
+    onMouseLeave={handleMouseUp}
+    onTouchStart={handleMouseDown}
+    onTouchMove={handleMouseMove}
+    onTouchEnd={handleMouseUp}
+  >
+    <div className="flex transition-transform duration-300 ease-out" style={{ transform: `translateX(-${currentIndex * 100 / getSlidesToShow()}%)` }}>
+      {newsItems.map((item, index) => (
+        <div key={index} className="lg:w-1/3 md:w-1/2 xs:w-full flex-shrink-0 px-2" style={{ gap: '16px' }}>
+          <Image
+            src={item.src}
+            alt={item.alt}
+            width={300}
+            height={200}
+            className="rounded-lg transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"
+          />
+          <h2 className="news-title text-xl font-bold mt-4 whitespace-normal">{item.title}</h2>
+          <p className="news-date text-gray-500">{item.date}</p>
         </div>
-        {window.innerWidth >= 1024 && (
-         <div className="absolute top-1/2 transform -translate-y-1/2 w-full flex justify-end px-4">
-        <button onClick={nextSlide} className="bg-gray-800 text-white p-2 rounded-full transition-transform transform hover:scale-110 hover:bg-gray-700">
-  <ArrowRight />
-</button>
-        </div>
-        )}
-      </div>
+      ))}
     </div>
+    {typeof window !== 'undefined' && window.innerWidth >= 1024 && (
+      <div className="absolute top-1/2 transform -translate-y-1/2 w-full flex justify-end px-4">
+        <button onClick={nextSlide} className="bg-gray-800 text-white p-2 rounded-full transition-transform transform hover:scale-110 hover:bg-gray-700">
+          <ArrowRight />
+        </button>
+      </div>
+    )}
+  </div>
+</div>
+</>
   );
 }

@@ -34,7 +34,7 @@ export default function MainSection() {
   return (
     <div className="bg-[#5A3EE5]  bg-cover bg-center relative overflow-hidden w-full">
       {/* Content */}
-      <div className=" z-10 sm:h-[50vh] md:h-[45vh] lg:h-[100vh]">
+      <div className=" z-10 sm:h-[100%] md:h-[100%] lg:h-[100%]">
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 flex items-center p-4 min-h-[100px] min-w-full sm:justify-between lg:pl-24 lg:pt-12 lg:left-20">
         <div className="text-white text-3xl font-bold ml-10 z-10">
@@ -97,7 +97,7 @@ export default function MainSection() {
           </div>
 
           {/* button */}
-          <button className="main-btn bg-[#EAF943] text-black px-8 py-3 rounded-full font-semibold text-xl mr-[47%]md:justify-center lg:justify-start">
+          <button className="main-btn sm:mb-5 bg-[#EAF943] text-black px-8 py-3 rounded-full font-semibold text-xl mr-[47%]md:justify-center lg:justify-start">
             BECOME SPONSOR
           </button>
         </div>
